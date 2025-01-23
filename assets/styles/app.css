@@ -1,3 +1,10 @@
-body {
-    background-color: skyblue;
+.message {
+    background: var(--bs-primary);
+    width: fit-content;
+}
+
+.message-end {
+    background: var(--bs-secondary);
+    margin-left: auto;
+    text-align: right;
 }
