@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
+            <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-body">
                         <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
@@ -16,7 +16,7 @@
                         {{ form_row(registrationForm.username) }}
 
                         {{ form_row(registrationForm.plainPassword, {
-                            label: 'Password'
+                            label: 'Mot de passe'
                         }) }}
 
                         <button class="btn btn-primary" type="submit">S'inscrire</button>
