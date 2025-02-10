@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conversation{% endblock %}
+
+{% block body %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">Messages</div>
+          <div class="card-body">
+            <div 
+              id="messages" 
+              hx-ext="sse" 
+              sse-connect="{{ mercure(topic) }}" 
+              sse-swap="message"
+              class="overflow-y-auto" 
+              style="max-height: 500px;">
+              {% include 'conversation/messages.html.twig' %}
+            </div>
+            <hr>
+            <form class="d-flex gap-3 mt-3" hx-post="{{ path('message.create') }}" hx-swap="none">
+              <input aria-label="Message" type="text" class="form-control" name="content" id="content" placeholder="Message">
+              <input type="hidden" name="conversationId" value="{{ conversation.id }}">
+              <button class="btn btn-primary">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
